@@ -503,32 +503,43 @@
             .card {
                 padding: 24px 20px;
             }
+
+            .guidance-section div[style*="padding: 25px"] {
+                padding: 20px !important;
+            }
         }
 
         @media (max-width: 600px) {
             .container {
-                margin-top: 140px;
-                padding: 20px 16px;
+                margin-top: 120px;
+                padding: 15px 12px;
+                gap: 25px;
+            }
+
+            .header {
+                padding: 16px 0;
             }
 
             .back-to-calculators {
-                left: 16px;
-                top: 16px;
+                left: 12px;
+                top: 12px;
                 padding: 6px 12px;
                 font-size: 12px;
             }
 
             .header-content {
-                padding: 0 80px;
-                gap: 12px;
+                padding: 0 60px;
+                gap: 10px;
             }
 
             .header-title {
-                font-size: 20px;
+                font-size: 18px;
+                line-height: 1.3;
             }
 
             .card {
                 padding: 20px 16px;
+                border-radius: 16px;
             }
 
             .section-title {
@@ -541,41 +552,149 @@
             }
 
             .guidance-section {
-                padding: 20px;
+                padding: 16px;
                 margin-top: 20px;
+                border-radius: 12px;
             }
 
             .guidance-title {
-                font-size: 18px;
+                font-size: 16px;
+                margin-bottom: 12px;
             }
 
             .guidance-text {
                 font-size: 13px;
+                margin-bottom: 12px;
+                line-height: 1.5;
+            }
+
+            /* Mobile-optimized market reference section */
+            .guidance-section div[style*="padding: 25px"] {
+                padding: 18px !important;
+            }
+
+            .guidance-section div[style*="font-size: 16px"] {
+                font-size: 15px !important;
+            }
+
+            .guidance-section div[style*="font-size: 14px"] {
+                font-size: 13px !important;
+                margin-bottom: 12px !important;
+            }
+
+            #openZapmapPopup {
+                padding: 10px 20px !important;
+                font-size: 13px !important;
+                width: 100%;
+                margin: 0 !important;
             }
 
             .result-card {
-                padding: 20px;
+                padding: 18px;
             }
 
             .result-icon {
-                font-size: 40px;
-                margin-bottom: 12px;
+                font-size: 36px;
+                margin-bottom: 10px;
             }
 
             .result-value {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             .result-label {
-                font-size: 12px;
-            }
-
-            .result-description {
                 font-size: 11px;
             }
 
+            .result-description {
+                font-size: 10px;
+            }
+
             .breakdown-item {
+                font-size: 12px;
+                padding: 6px 0;
+            }
+
+            .breakdown-item:last-child {
+                font-size: 14px;
+                padding-top: 12px;
+            }
+
+            .breakdown-title {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
+            .calculation-breakdown {
+                padding: 16px;
+                margin-top: 20px;
+            }
+
+            /* Improve input field on mobile */
+            input {
+                padding: 14px 16px;
+                font-size: 16px; /* Prevents zoom on iOS */
+                min-height: 52px;
+            }
+
+            label {
                 font-size: 13px;
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px 8px;
+                margin-top: 110px;
+            }
+
+            .header-content {
+                padding: 0 40px;
+            }
+
+            .header-title {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 16px 12px;
+            }
+
+            .section-title {
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+
+            .guidance-section {
+                padding: 14px;
+            }
+
+            .guidance-title {
+                font-size: 15px;
+            }
+
+            .guidance-text {
+                font-size: 12px;
+            }
+
+            .breakdown-item {
+                font-size: 11px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+
+            .breakdown-item:last-child {
+                font-size: 13px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            input {
+                padding: 12px 14px;
+                min-height: 48px;
             }
         }
 
@@ -797,7 +916,9 @@
                         const popup = window.open(
                             'https://www.zap-map.com/ev-stats/charging-price-index',
                             'zapmapPricing',
-                            'width=1000,height=700,scrollbars=yes,resizable=yes,menubar=no,toolbar=no,location=yes'
+                            'width=' + Math.min(1000, window.innerWidth - 100) + ',' +
+                            'height=' + Math.min(700, window.innerHeight - 100) + ',' +
+                            'scrollbars=yes,resizable=yes,menubar=no,toolbar=no,location=yes'
                         );
                         
                         // Optional: Focus the popup window
